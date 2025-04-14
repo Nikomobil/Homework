@@ -21,4 +21,23 @@ public class TestBase {
     public boolean isElementpresent(By locator){
         return driver.findElements(locator).size()>0;
     }
+
+    public void type(By locator, String text) {
+        click(locator);
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+    }
+
+    public void click(By locator) {
+        driver.findElement(locator).click();
+    }
+
+    public boolean isErrorDisplayed() {
+        boolean error =driver.findElement(By.xpath("//li[.='The specified email already exists']")).isDisplayed();
+        if (error) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

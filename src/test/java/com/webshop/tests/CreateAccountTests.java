@@ -8,37 +8,53 @@ public class CreateAccountTests extends TestBase {
 
     @Test
     public void newUserRegistrationPositiveTest() {
+        int i = (int) ((System.currentTimeMillis()/1000)%3600);
 
         // click on register link
-        driver.findElement(By.cssSelector("[href='/register']")).click();
+        click(By.cssSelector("[href='/register']"));
         // enter Male
-        driver.findElement(By.id("gender-male")).click();
+        click(By.id("gender-male"));
         // enter first name
-        driver.findElement(By.id("FirstName")).click();
-        driver.findElement(By.id("FirstName")).clear();
-        driver.findElement(By.id("FirstName")).sendKeys("Mark");
+        type(By.id("FirstName"), "Mark");
         // enter last name
-        driver.findElement(By.id("LastName")).click();
-        driver.findElement(By.id("LastName")).clear();
-        driver.findElement(By.id("LastName")).sendKeys("Twain");
+        type(By.id("LastName"), "Twain");
         // enter email
-        driver.findElement(By.name("Email")).click();
-        driver.findElement(By.name("Email")).clear();
-        driver.findElement(By.name("Email")).sendKeys("savy_s@gmail.com");
+        type(By.name("Email"), "test" +i+"@test.com");
         // enter password
-        driver.findElement(By.id("Password")).click();
-        driver.findElement(By.id("Password")).clear();
-        driver.findElement(By.id("Password")).sendKeys("12523Sdf!");
+        type(By.id("Password"), "12523Sdf!");
         // confirm password
-        driver.findElement(By.id("ConfirmPassword")).click();
-        driver.findElement(By.id("ConfirmPassword")).clear();
-        driver.findElement(By.id("ConfirmPassword")).sendKeys("12523Sdf!");
+        type(By.id("ConfirmPassword"), "12523Sdf!");
         // register
-        driver.findElement(By.id("register-button")).click();
+        click(By.id("register-button"));
         //continue
-        driver.findElement(By.cssSelector(".button-1.register-continue-button")).click();
+        click(By.cssSelector(".button-1.register-continue-button"));
         // logout
         Assert.assertTrue(isElementpresent(By.className("ico-logout")));
 
     }
+
+    @Test
+    public void existedUserRegistrationNegativeTest() {
+        // click on register link
+        click(By.cssSelector("[href='/register']"));
+        // enter Male
+        click(By.id("gender-male"));
+        // enter first name
+        type(By.id("FirstName"), "Mark");
+        // enter last name
+        type(By.id("LastName"), "Twain");
+        // enter email
+        type(By.name("Email"), "savy_s@gmail.com");
+        // enter password
+        type(By.id("Password"), "12523Sdf!");
+        // confirm password
+        type(By.id("ConfirmPassword"), "12523Sdf!");
+        // register
+        click(By.id("register-button"));
+        // logout
+        Assert.assertTrue(isErrorDisplayed());
+
+   }
+
+
 }
