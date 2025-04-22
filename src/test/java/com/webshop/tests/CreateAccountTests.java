@@ -11,10 +11,11 @@ public class CreateAccountTests extends TestBase {
 
     @BeforeMethod
     public void preconditions() {
-        if(!app.getUser().isRegisterPresent()){
+        if (!app.getUser().isRegisterPresent()) {
             app.getUser().clickOnRegisterLink();
 
-        };
+        }
+        ;
 
     }
 

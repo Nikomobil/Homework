@@ -5,7 +5,7 @@ import com.webshop.models.UserLog;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class UserHelper  extends BaseHelper{
+public class UserHelper extends BaseHelper {
     public UserHelper(WebDriver driver) {
         super(driver);
     }

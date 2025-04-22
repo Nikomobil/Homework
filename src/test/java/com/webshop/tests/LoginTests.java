@@ -12,29 +12,31 @@ public class LoginTests extends TestBase {
             app.getUser().clickLoginlink();
 
         }
-    };
-        ;
+    }
 
-        @Test
-        public void loginPositiveTest () {
-            app.getUser().clickLoginlink();
-            app.getUser().fillLoginData(new UserLog().setEmail("savy_s@gmail.com").setPassword("12523Sdf!"));
-            app.getUser().clickRemember();
-            app.getUser().clickLoginButton();
-            Assert.assertTrue(app.getUser().isLogout());
-            app.getUser().clickLogOutButton();
+    ;;
 
-        }
-
-        @Test
-        public void loginNegativeWithoutEmailTest () {
-            app.getUser().clickLoginlink();
-            app.getUser().fillLoginData(new UserLog().setPassword("12523Sdf!"));
-            app.getUser().clickRemember();
-            app.getUser().clickLoginButton();
-            Assert.assertTrue(app.getUser().isUnsuccessfullLogin());
-
-        }
+    @Test
+    public void loginPositiveTest() {
+        app.getUser().clickLoginlink();
+        app.getUser().fillLoginData(new UserLog().setEmail("savy_s@gmail.com").setPassword("12523Sdf!"));
+        app.getUser().clickRemember();
+        app.getUser().clickLoginButton();
+        Assert.assertTrue(app.getUser().isLogout());
+        app.getUser().clickLogOutButton();
 
     }
+
+    @Test
+    public void loginNegativeWithoutEmailTest() {
+        app.getUser().clickLoginlink();
+        app.getUser().fillLoginData(new UserLog().setPassword("12523Sdf!"));
+        app.getUser().clickRemember();
+        app.getUser().clickLoginButton();
+        Assert.assertTrue(app.getUser().isUnsuccessfullLogin());
+
+    }
+
+
+}
 

@@ -22,9 +22,9 @@ public class ApplicationManager {
     }
 
     public void init() {
-        if(browser.equalsIgnoreCase("chrome")) {
+        if (browser.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
-        }else if(browser.equalsIgnoreCase("firefox")) {
+        } else if (browser.equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();
         }
         driver.get("https://demowebshop.tricentis.com/");

@@ -20,5 +20,6 @@ public class UserLog {
     public UserLog setPassword(String password) {
         this.password = password;
         return this;
+
     }
 }
