@@ -1,4 +1,4 @@
-package com.webshop.tests;
+package com.webshop.models;
 
 public class User {
     private String gender;

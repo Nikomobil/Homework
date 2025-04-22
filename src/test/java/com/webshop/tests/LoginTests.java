@@ -1,28 +1,40 @@
 package com.webshop.tests;
 
+import com.webshop.models.UserLog;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTests extends TestBase {
+    @BeforeMethod
+    public void preconditions() {
+        if (!app.getUser().isRegisterPresent()) {
+            app.getUser().clickLoginlink();
 
-    @Test
-    public void loginPositiveTest() {
-        clickLoginlink();
-        fillLoginData(new UserLog().setEmail("savy_s@gmail.com").setPassword( "12523Sdf!"));
-        clickRemember();
-        clickLoginButton();
-        Assert.assertTrue(isLogout());
+        }
+    };
+        ;
+
+        @Test
+        public void loginPositiveTest () {
+            app.getUser().clickLoginlink();
+            app.getUser().fillLoginData(new UserLog().setEmail("savy_s@gmail.com").setPassword("12523Sdf!"));
+            app.getUser().clickRemember();
+            app.getUser().clickLoginButton();
+            Assert.assertTrue(app.getUser().isLogout());
+            app.getUser().clickLogOutButton();
+
+        }
+
+        @Test
+        public void loginNegativeWithoutEmailTest () {
+            app.getUser().clickLoginlink();
+            app.getUser().fillLoginData(new UserLog().setPassword("12523Sdf!"));
+            app.getUser().clickRemember();
+            app.getUser().clickLoginButton();
+            Assert.assertTrue(app.getUser().isUnsuccessfullLogin());
+
+        }
 
     }
 
-    @Test
-    public void loginNegativeWithoutEmailTest() {
-        clickLoginlink();
-        fillLoginData(new UserLog().setPassword("12523Sdf!"));
-        clickRemember();
-        clickLoginButton();
-        Assert.assertTrue(isUnsuccessfullLogin());
-
-    }
-
-}
