@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Start" verbose="1">
+    <test name="Start1">
+        <classes>
+            <class name="com.webshop.tests.LoginTests"/>
+        </classes>
+    </test>
+</suite>
