@@ -22,4 +22,12 @@ public class UserLog {
         return this;
 
     }
+
+    @Override
+    public String toString() {
+        return "UserLog{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

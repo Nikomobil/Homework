@@ -4,12 +4,14 @@ import com.webshop.data.ContactData;
 import com.webshop.data.UserData;
 import com.webshop.models.User;
 import com.webshop.models.UserLog;
+import com.webshop.utils.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,21 +46,19 @@ public class CreateAccountTests extends TestBase {
 
     }
 
-    @DataProvider
-    public Iterator <Object[]> validRegistrationFromDataProvider() {
-        List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"gender - male", "FirstName", "LastName", "Email@gmail.net",
-                "12523Sdf!"});
-        list.add(new Object[]{"gender - female", "FirstName1", "LastName1", "Email1@gmail.net",
-                "12523Sdf!"});
-        list.add(new Object[]{"gender - female", "FirstName2", "LastNam2e", "Email2@gmail.net",
-                "12523Sdf!"});
 
-        return list.iterator();
+
+    @Test(dataProvider = "validRegistrationFromDataProviderCsvFile",dataProviderClass = DataProviders.class)
+    public void newRegistrationPositiveFromDataProviderTest(User user) {
+        app.getUser().clickOnRegisterLink();
+        app.getUser().fillRegisterForm(user);
+        app.getUser().clickRegisterButton();
+        app.getUser().clickContinueButton();
+        Assert.assertTrue(app.getUser().isLogout());
 
     }
-    @Test(dataProvider = "validRegistrationFromDataProvider")
-    public void newRegistrationPositiveFromDataProviderTest(String gender,
+    @Test(dataProvider = "validRegistrationFromDataProvider", dataProviderClass = DataProviders.class)
+    public void newRegistrPositiveFromDataProviderCsvFileTest(String gender,
                                                             String firstName,
                                                             String lastName,
                                                             String email,
@@ -73,6 +73,7 @@ public class CreateAccountTests extends TestBase {
         app.getUser().clickRegisterButton();
         app.getUser().clickContinueButton();
         Assert.assertTrue(app.getUser().isLogout());
+        app.getUser().clickLogOutButton();
 
     }
 
