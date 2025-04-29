@@ -15,11 +15,11 @@ public class DataProviders {
     @DataProvider
     public Iterator<Object[]> validRegistrationFromDataProvider() {
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"gender - male", "FirstName", "LastName", "Email@gmail.net",
+        list.add(new Object[]{"gender-male", "Fi1Name", "LastName", "Email1t@gmail.net",
                 "12523Sdf!"});
-        list.add(new Object[]{"gender - female", "FirstName1", "LastName1", "Email1@gmail.net",
+        list.add(new Object[]{"gender-female", "FirsName1", "LastName1", "Email2r@gmail.net",
                 "12523Sdf!"});
-        list.add(new Object[]{"gender - female", "FirstName2", "LastNam2e", "Email2@gmail.net",
+        list.add(new Object[]{"gender-female", "Fst3Name2", "LastName", "Email3r@gmail.net",
                 "12523Sdf!"});
 
         return list.iterator();

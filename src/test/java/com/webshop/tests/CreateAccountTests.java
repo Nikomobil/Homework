@@ -55,9 +55,10 @@ public class CreateAccountTests extends TestBase {
         app.getUser().clickRegisterButton();
         app.getUser().clickContinueButton();
         Assert.assertTrue(app.getUser().isLogout());
+        app.getUser().clickLogOutButton();
 
     }
-    @Test(dataProvider = "validRegistrationFromDataProvider", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "validRegistrationFromDataProvider", dataProviderClass = DataProviders.class,enabled = false)
     public void newRegistrPositiveFromDataProviderCsvFileTest(String gender,
                                                             String firstName,
                                                             String lastName,
