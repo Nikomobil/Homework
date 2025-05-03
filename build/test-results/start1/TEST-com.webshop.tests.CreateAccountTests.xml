@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.webshop.tests.CreateAccountTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-23T14:43:19" hostname="MacBook-Pro" time="3.321">
+  <properties/>
+  <testcase name="existedUserRegistrationNegativeTest" classname="com.webshop.tests.CreateAccountTests" time="3.321"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
