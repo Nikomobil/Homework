@@ -30,7 +30,7 @@ public class CreateAccountTests extends TestBase {
 
     SoftAssert softAssert = new SoftAssert();
 
-    @Test(enabled = false)
+    @Test
     public void newUserRegistrationPositiveTest() {
         app.getUser().clickOnRegisterLink();
 
@@ -48,7 +48,7 @@ public class CreateAccountTests extends TestBase {
 
 
 
-    @Test(dataProvider = "validRegistrationFromDataProviderCsvFile",dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "validRegistrationFromDataProviderCsvFile",dataProviderClass = DataProviders.class,enabled = false)
     public void newRegistrationPositiveFromDataProviderTest(User user) {
         app.getUser().clickOnRegisterLink();
         app.getUser().fillRegisterForm(user);
